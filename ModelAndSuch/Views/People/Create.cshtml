@@ -1,0 +1,16 @@
+﻿@using ModelAndSuch.Models;
+@using ModelAndSuch.Models.Entities;
+@addTagHelper*, Microsoft.AspNetCore.Mvc.TagHelpers 
+@model Person
+
+<h2>Create Person</h2>
+<form asp-controller="People" asp-action="Create">
+    <label asp-for="Name"></label>
+    <input asp-for="Name" />
+    <span asp-validation-for="Name"></span><br /><br />
+    <label asp-for="Email"></label>
+    <input asp-for="Email" />
+    <span asp-validation-for="Email"></span><br /><br />
+    <input type="submit" value="Create Person" />
+</form>
+
