@@ -1,8 +1,16 @@
-﻿@using ModelAndSuch.Models.Entities;
-@addTagHelper*, Microsoft.AspNetCore.Mvc.TagHelpers
-@model Person
+﻿@model Person
 
-<h2>Details for @Model.Name</h2>
+@{
+    ViewBag.Title = "Details";
+}
 
-<p>Email: @Model.Email</p>
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">@Model.Name</h4>
+        <h6 class="card-subtitle mb-2 text-muted"></h6>
+        <p class="card-text">
+            @Model.Email
+        </p>
+    </div>
+</div>
 

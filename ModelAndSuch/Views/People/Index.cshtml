@@ -1,6 +1,8 @@
-﻿@addTagHelper*, Microsoft.AspNetCore.Mvc.TagHelpers
-@using ModelAndSuch.Models.Entities;
-@model Person[]
+﻿@model Person[]
+
+@{
+    ViewBag.Title = "Home";
+}
 
 <h2>All the people</h2>
 @foreach (var p in Model)
