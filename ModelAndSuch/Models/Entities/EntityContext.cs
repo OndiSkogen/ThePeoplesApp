@@ -22,6 +22,7 @@ namespace ModelAndSuch.Models.Entities
         {
             if (!optionsBuilder.IsConfigured)
             {
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
                 optionsBuilder.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=Entity;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
             }
         }
@@ -37,11 +38,6 @@ namespace ModelAndSuch.Models.Entities
                 entity.Property(e => e.Name)
                     .IsRequired()
                     .HasMaxLength(50);
-
-                entity.HasOne(d => d.CompanyNavigation)
-                    .WithMany(p => p.Company)
-                    .HasForeignKey(d => d.CompanyId)
-                    .HasConstraintName("FK__Company__Company__29572725");
             });
 
             modelBuilder.Entity<Person>(entity =>
@@ -53,6 +49,11 @@ namespace ModelAndSuch.Models.Entities
                 entity.Property(e => e.Name)
                     .IsRequired()
                     .HasMaxLength(50);
+
+                entity.HasOne(d => d.Company)
+                    .WithMany(p => p.Person)
+                    .HasForeignKey(d => d.CompanyId)
+                    .HasConstraintName("FK__Person__CompanyI__34C8D9D1");
             });
         }
     }

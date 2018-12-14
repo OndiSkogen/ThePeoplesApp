@@ -18,7 +18,9 @@ namespace ModelAndSuch.Models
 
         public async Task<Person[]> GetAllPeopleAsync()
         {
-            var p = await e.Person.OrderBy(i => i.Id).ToArrayAsync();
+            var p = await e.Person
+                .Include(o => o.Company)
+                .OrderBy(i => i.Id).ToArrayAsync();
             return p;
         }
 

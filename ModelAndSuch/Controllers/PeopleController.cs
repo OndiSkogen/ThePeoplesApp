@@ -17,6 +17,7 @@ namespace ModelAndSuch.Controllers
             this.service = service;
         }
 
+        [Route("")]
         public async Task<IActionResult> Index()
         {
             return View(await service.GetAllPeopleAsync());

@@ -7,7 +7,7 @@
 <h2>All the people</h2>
 @foreach (var p in Model)
 {
-    <a asp-controller="People" asp-action="Details" asp-route-id="@p.Id">@p.Name Email: @p.Email</a><br />
+    <a asp-controller="People" asp-action="Details" asp-route-id="@p.Id">@p.Name Email: @p.Email Company: @p.Company?.Name</a><br />
 }
 <a asp-controller="People" asp-action="Create" formmethod="get">Create Person</a>
 
