@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using ModelAndSuch.Models;
 using ModelAndSuch.Models.Entities;
+using ModelAndSuch.Models.ViewModels;
 
 namespace ModelAndSuch.Controllers
 {
@@ -30,7 +31,7 @@ namespace ModelAndSuch.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(Person p)
+        public async Task<IActionResult> Create(PeopleCreateVM p)
         {
             if (!ModelState.IsValid)
                 return View(p);
